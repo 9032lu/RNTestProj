@@ -30,8 +30,20 @@ import {createStackNavigator,createAppContainer} from 'react-navigation'
 class DetailsScreen extends Component{
   render() {
     return (
-      <View style={styles.flex}>
+      <View style={[styles.flex,{backgroundColor:'rgb(24,234,234)'}]}>
         <Text style={{fontSize:20}}>详情</Text>
+        <Button
+          title='Go to Details... again'
+          onPress={()=>this.props.navigation.push('Details')}
+        />
+        <Button
+          title='Go to home'
+          onPress={()=>this.props.navigation.push('Home')}
+        />
+        <Button
+          title='Go to back'
+          onPress={()=>this.props.navigation.goBack()}
+        />
       </View>
     )
   }
@@ -39,8 +51,19 @@ class DetailsScreen extends Component{
 
 const RootStack = createStackNavigator(
   {
-  Home:HomeScreen,
-  Details:DetailsScreen,
+  Home:{
+    screen:HomeScreen,
+    navigationOptions:{
+      title:'首页',
+    }
+
+  },
+  Details:{
+    screen:DetailsScreen,
+    navigationOptions:{
+      title:'详情页',
+    }
+  },
 
   },
   {

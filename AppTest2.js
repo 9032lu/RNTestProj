@@ -17,7 +17,7 @@ import {createStackNavigator,createAppContainer} from 'react-navigation'
           <Text style={{fontSize:20}}>首页</Text>
           <Button 
             title='Goto Detail'
-            onPress={()=>this.props.navigation.navigate('Details')}
+            onPress={()=>this.props.navigation.push('Details')}
           />
 
 
